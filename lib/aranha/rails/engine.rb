@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'active_scaffold'
+
 module Aranha
   module Rails
     class Engine < ::Rails::Engine

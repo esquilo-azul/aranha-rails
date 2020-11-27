@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{lib}/**/*']
 
+  s.add_dependency 'active_scaffold', '~> 3.5', '>= 3.5.5'
   s.add_dependency 'eac_rails_utils', '~> 0.12', '>= 0.12.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.52'
   s.add_dependency 'rails', '~> 5.1.7'

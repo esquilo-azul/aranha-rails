@@ -4,3 +4,6 @@ en:
       aranha/address:
         one: Aranha address
         other: Aranha addresses
+      aranha/start_point:
+        one: Aranha start point
+        other: Aranha start points

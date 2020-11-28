@@ -4,3 +4,6 @@ pt-BR:
       aranha/address:
         one: Endereço Aranha
         other: Endereços Aranha
+      aranha/start_point:
+        one: Ponto de Partida Aranha
+        other: Pontos de Partida Aranha

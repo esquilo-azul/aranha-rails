@@ -33,6 +33,13 @@ module Aranha
         ::Rails.logger.warn(message)
       end
 
+      def start_points_to_addresses
+        super
+        ::Aranha::StartPoint.all.each do |sp|
+          add_address(sp.uri, sp.processor_class, sp.extra_data)
+        end
+      end
+
       def unprocessed_addresses
         ::Aranha::Address.unprocessed
       end

@@ -18,7 +18,7 @@ module Aranha
 
       def run
         url_files.each do |f|
-          Rails.logger.info(relative_path(f))
+          ::Rails.logger.info(relative_path(f))
           download(url(f), target(f)) if @download
         end
       end
@@ -40,11 +40,11 @@ module Aranha
       end
 
       def fixtures_root
-        Rails.root.to_s
+        ::Rails.root.to_s
       end
 
       def download(url, target)
-        Rails.logger.info "Baixando \"#{url}\"..."
+        ::Rails.logger.info "Baixando \"#{url}\"..."
         content = ::Aranha::Parsers::Base.new(url).content
         raise "Content is blank for \"#{url}\"" if content.blank?
 

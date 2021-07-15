@@ -8,8 +8,10 @@ require 'eac_ruby_utils/core_ext'
 module Aranha
   module Rails
     class FixturesDownload
+      DEFAULT_EXTENSION = '.html'
+
       enable_listable
-      lists.add_symbol :option, :prefix, :download, :pending
+      lists.add_symbol :option, :extension, :prefix, :download, :pending
 
       common_constructor :options do
         self.options = self.class.lists.option.hash_keys_validate!(options)
@@ -17,6 +19,10 @@ module Aranha
 
       def download?
         options[OPTION_DOWNLOAD] ? true : false
+      end
+
+      def extension
+        options[OPTION_EXTENSION].if_present(DEFAULT_EXTENSION)
       end
 
       def pending?
@@ -67,7 +73,7 @@ module Aranha
       end
 
       def target(file)
-        File.expand_path(File.basename(file, '.url') + '.source.html', File.dirname(file))
+        File.expand_path(File.basename(file, '.url') + '.source' + extension, File.dirname(file))
       end
 
       def relative_path(path)

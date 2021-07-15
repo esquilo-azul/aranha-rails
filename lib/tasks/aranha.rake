@@ -15,6 +15,7 @@ namespace(:aranha) do
     desc 'Download remote content for fixtures.'
     task download: :environment do
       ::Aranha::Rails::FixturesDownload.new(
+        ::Aranha::Rails::FixturesDownload::OPTION_EXTENSION => ENV['EXTENSION'],
         ::Aranha::Rails::FixturesDownload::OPTION_PREFIX => ENV['PREFIX'],
         ::Aranha::Rails::FixturesDownload::OPTION_DOWNLOAD => ENV['DOWNLOAD'].present?,
         ::Aranha::Rails::FixturesDownload::OPTION_PENDING => ENV['PENDING'].present?

@@ -3,23 +3,34 @@
 require 'aranha/parsers/base'
 require 'aranha/parsers/source_address'
 require 'aranha/parsers/source_target_fixtures'
+require 'eac_ruby_utils/core_ext'
 
 module Aranha
   module Rails
     class FixturesDownload
-      attr_reader :pending
+      enable_listable
+      lists.add_symbol :option, :prefix, :download, :pending
 
-      def initialize(options)
-        @prefix = options.fetch(:prefix)
-        @prefix = '' if @prefix.blank?
-        @download = options.fetch(:download)
-        @pending = options.fetch(:pending)
+      common_constructor :options do
+        self.options = self.class.lists.option.hash_keys_validate!(options)
+      end
+
+      def download?
+        options[OPTION_DOWNLOAD] ? true : false
+      end
+
+      def pending?
+        options[OPTION_PENDING] ? true : false
+      end
+
+      def prefix
+        options[OPTION_PREFIX].if_present('')
       end
 
       def run
         url_files.each do |f|
           ::Rails.logger.info(relative_path(f))
-          download(url(f), target(f)) if @download
+          download(url(f), target(f)) if download?
         end
       end
 
@@ -32,11 +43,11 @@ module Aranha
       def select_path?(path)
         return false unless match_prefix_pattern(path)
 
-        !pending || !source_exist?(path)
+        !pending? || !source_exist?(path)
       end
 
       def match_prefix_pattern(path)
-        relative_path(path).start_with?(@prefix)
+        relative_path(path).start_with?(prefix)
       end
 
       def fixtures_root

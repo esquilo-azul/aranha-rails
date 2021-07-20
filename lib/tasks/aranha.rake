@@ -3,7 +3,7 @@
 namespace(:aranha) do
   desc 'Process Aranha\'s addresses.'
   task process: :environment do
-    ::Aranha::Processor.new
+    ::Aranha::Rails::Process.new.run
   end
 
   desc 'Remove all registered Aranha\'s addresses.'

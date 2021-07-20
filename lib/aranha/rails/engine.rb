@@ -12,3 +12,5 @@ module Aranha
     end
   end
 end
+
+require 'aranha/rails/patches/delayed_job'

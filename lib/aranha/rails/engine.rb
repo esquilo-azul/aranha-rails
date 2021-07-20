@@ -1,17 +1,14 @@
 # frozen_string_literal: true
 
 require 'active_scaffold'
+require 'eac_rails_delayed_job/engine'
 
 module Aranha
   module Rails
     class Engine < ::Rails::Engine
-      isolate_namespace ::Aranha
+      include ::EacRailsUtils::EngineHelper
 
-      initializer :append_migrations do |app|
-        config.paths['db/migrate'].expanded.each do |expanded_path|
-          app.config.paths['db/migrate'] << expanded_path
-        end
-      end
+      isolate_namespace ::Aranha
     end
   end
 end

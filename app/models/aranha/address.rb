@@ -6,6 +6,7 @@ require 'delayed/backend/active_record'
 module Aranha
   class Address < ::ActiveRecord::Base
     include ::EacRailsUtils::Models::InequalityQueries
+    include ::Aranha::Address::Scheduling
 
     add_inequality_queries(:created_at)
 

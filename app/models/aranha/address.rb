@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'eac_ruby_utils/yaml'
+require 'delayed/backend/active_record'
 
 module Aranha
   class Address < ::ActiveRecord::Base
@@ -17,6 +18,9 @@ module Aranha
         end
       end
     end
+
+    belongs_to :delayed_job, class_name: 'Delayed::Backend::ActiveRecord::Job', dependent: :destroy,
+                             optional: true
 
     validates :url, presence: true, uniqueness: true
     validates :processor, presence: true

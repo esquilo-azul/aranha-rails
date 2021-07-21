@@ -25,6 +25,8 @@ module Aranha
 
     validates :url, presence: true, uniqueness: true
     validates :processor, presence: true
+    validates :tries_count, presence: true, numericality: { only_integer: true,
+                                                            greater_or_equal: 0 }
 
     scope :unprocessed, lambda {
       where(processed_at: nil)

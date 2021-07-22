@@ -48,6 +48,10 @@ module Aranha
       end
     end
 
+    def processed?
+      processed_at.present?
+    end
+
     private
 
     def instanciate_processor

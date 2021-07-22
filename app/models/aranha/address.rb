@@ -28,6 +28,10 @@ module Aranha
     validates :tries_count, presence: true, numericality: { only_integer: true,
                                                             greater_or_equal: 0 }
 
+    scope :failed, lambda {
+      where(processed_at: nil).where.not(last_error: nil)
+    }
+
     scope :unprocessed, lambda {
       where(processed_at: nil)
     }

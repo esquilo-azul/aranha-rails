@@ -11,6 +11,13 @@ namespace(:aranha) do
     Rails.logger.info("Addresses deleted: #{::Aranha::Address.destroy_all.count}")
   end
 
+  namespace :address do
+    desc 'Process a arbitrary address.'
+    task :process, %i[uri processor] => :environment do |_t, args|
+      args.processor.constantize.new(args.uri, {}).process
+    end
+  end
+
   namespace :fixtures do
     desc 'Download remote content for fixtures.'
     task download: :environment do

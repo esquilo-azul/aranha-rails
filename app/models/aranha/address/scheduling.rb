@@ -19,6 +19,10 @@ module Aranha
         end
       end
 
+      def expired?(time = ::Time.zone.now)
+        time >= (created_at + timeout)
+      end
+
       def init_scheduling
         update!(tries_count: 0, last_error: nil) unless processed?
         check_scheduling

@@ -4,6 +4,9 @@ en:
       aranha/address:
         one: Aranha address
         other: Aranha addresses
+      aranha/processor_configuration:
+        one: Aranha processor configuration
+        other: Aranha processors configurations
       aranha/start_point:
         one: Aranha start point
         other: Aranha start points

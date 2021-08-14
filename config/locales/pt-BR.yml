@@ -4,6 +4,9 @@ pt-BR:
       aranha/address:
         one: Endereço Aranha
         other: Endereços Aranha
+      aranha/processor_configuration:
+        one: Configuração de processador Aranha
+        other: Configuração de processadores Aranha
       aranha/start_point:
         one: Ponto de Partida Aranha
         other: Pontos de Partida Aranha

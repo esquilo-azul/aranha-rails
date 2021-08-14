@@ -27,6 +27,9 @@ module Aranha
       def allow_retry?
         tries_count < ::Aranha::Processor::DEFAULT_MAX_TRIES
       end
+
+      # @return [ActiveSupport::Duration]
+      delegate :timeout, to: :processor_configuration
     end
   end
 end

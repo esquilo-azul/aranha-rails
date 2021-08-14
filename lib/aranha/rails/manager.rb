@@ -22,9 +22,9 @@ module Aranha
       end
 
       def clear_expired_addresses
-        q = ::Aranha::Address.by_created_at_lt(Time.zone.now - 12.hours)
+        q = ::Aranha::Address.expired(::Time.zone.now)
         ::Rails.logger.info("Addresses expired: #{q.count}")
-        q.destroy_all
+        q.each(&:destroy)
       end
 
       def log_info(message)

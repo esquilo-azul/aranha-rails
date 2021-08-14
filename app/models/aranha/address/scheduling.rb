@@ -5,6 +5,15 @@ require 'eac_ruby_utils/core_ext'
 module Aranha
   class Address < ::ActiveRecord::Base
     module Scheduling
+      common_concern
+
+      module ClassMethods
+        # @return [Array<Aranha::Address>]
+        def expired(time = ::Time.zone.now)
+          all.select { |record| record.expired?(time) }
+        end
+      end
+
       def check_scheduling
         ::ActiveRecord::Base.transaction do
           return if processed_at.present?

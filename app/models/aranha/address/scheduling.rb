@@ -40,11 +40,10 @@ module Aranha
       end
 
       def schedule?
-        processed_at.blank? && allow_retry? && delayed_job.blank?
+        processed_at.blank? && allow_retry? && delayed_job.blank? && enabled?
       end
 
-      # @return [ActiveSupport::Duration]
-      delegate :timeout, to: :processor_configuration
+      delegate :enabled?, :timeout, to: :processor_configuration
     end
   end
 end

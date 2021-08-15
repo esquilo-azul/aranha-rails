@@ -16,9 +16,7 @@ module Aranha
 
       def check_scheduling
         ::ActiveRecord::Base.transaction do
-          return if processed_at.present?
-          return unless allow_retry?
-          return if delayed_job.present?
+          return unless schedule?
 
           job = ::Delayed::Job.enqueue(
             ::Aranha::Address::DelayedJob.new(id),
@@ -39,6 +37,10 @@ module Aranha
 
       def allow_retry?
         tries_count < ::Aranha::Processor::DEFAULT_MAX_TRIES
+      end
+
+      def schedule?
+        processed_at.blank? && allow_retry? && delayed_job.blank?
       end
 
       # @return [ActiveSupport::Duration]

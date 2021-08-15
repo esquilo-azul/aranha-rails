@@ -43,7 +43,7 @@ module Aranha
       end
 
       def unprocessed_addresses
-        ::Aranha::Address.unprocessed
+        ::Aranha::Address.all.select(&:schedule?)
       end
     end
   end

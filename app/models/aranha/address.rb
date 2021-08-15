@@ -33,10 +33,6 @@ module Aranha
       where(processed_at: nil).where.not(last_error: nil)
     }
 
-    scope :unprocessed, lambda {
-      where(processed_at: nil)
-    }
-
     def to_s
       "#{processor}|#{url}"
     end

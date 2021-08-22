@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Put here the authors']
   s.summary     = 'Put here de description.'
 
-  s.files = Dir['{lib}/**/*']
+  s.files = Dir['{app,config,db,lib}/**/*']
 
   s.add_dependency 'active_scaffold', '~> 3.5', '>= 3.5.5'
   s.add_dependency 'aranha', '~> 0.15'

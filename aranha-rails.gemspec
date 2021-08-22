@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Put here de description.'
 
   s.files = Dir['{app,config,db,lib}/**/*']
+  s.test_files = Dir['spec/**/*', '.rspec', 'Gemfile', '.rubocop.yml']
 
   s.add_dependency 'active_scaffold', '~> 3.5', '>= 3.5.5'
   s.add_dependency 'aranha', '~> 0.15'

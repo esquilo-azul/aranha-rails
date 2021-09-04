@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_scaffold'
+require 'eac_active_scaffold'
 require 'eac_rails_delayed_job/engine'
 
 module Aranha

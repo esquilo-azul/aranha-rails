@@ -15,8 +15,8 @@ module Aranha
       private
 
       def run_close
-        ::Aranha::Address.failed do |a|
-          ::Rails.logger.info "Failed \"#{a.url}\": #{a.last_error}"
+        ::Aranha::Address.failed.each do |a|
+          ::Rails.logger.warn "Failed \"#{a.url}\": #{a.last_error}"
         end
         raise 'Some address failed' if ::Aranha::Address.failed.any?
       end

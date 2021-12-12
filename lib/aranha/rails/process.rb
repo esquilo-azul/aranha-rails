@@ -6,10 +6,21 @@ module Aranha
       QUEUE = 'aranha'
       QUEUES = [QUEUE].freeze
 
+      enable_listable
+      lists.add_symbol :option, :limit
+
+      common_constructor :options, default: [{}] do
+        self.options = self.class.lists.option.hash_keys_validate!(options)
+      end
+
       def run
         run_init
         run_jobs_workoff
         run_close
+      end
+
+      def limit
+        options[OPTION_LIMIT].if_present(-1, &:to_i)
       end
 
       private
@@ -27,7 +38,8 @@ module Aranha
       end
 
       def run_jobs_workoff
-        ::Delayed::Worker.new(exit_on_complete: true, queues: QUEUES).start
+        worker = ::Delayed::Worker.new(exit_on_complete: true, queues: QUEUES)
+        limit.negative? ? worker.start : worker.work_off(limit)
       end
     end
   end

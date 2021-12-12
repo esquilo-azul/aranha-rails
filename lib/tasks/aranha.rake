@@ -2,8 +2,8 @@
 
 namespace(:aranha) do
   desc 'Process Aranha\'s addresses.'
-  task process: :environment do
-    ::Aranha::Rails::Process.new.run
+  task :process, %i[limit] => :environment do |_t, args|
+    ::Aranha::Rails::Process.new(limit: args.limit).run
   end
 
   desc 'Remove all registered Aranha\'s addresses.'

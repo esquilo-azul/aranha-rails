@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'active_record/base'
+require 'aranha/processor'
+require 'aranha/rails/process'
+require 'delayed_job'
 require 'eac_ruby_utils/core_ext'
 
 module Aranha

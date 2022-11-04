@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*']
   s.test_files = Dir['spec/**/*', '.rspec', 'Gemfile', '.rubocop.yml']
 
-  s.add_dependency 'aranha', '~> 0.17', '>= 0.17.1'
+  s.add_dependency 'aranha', '~> 0.18'
   s.add_dependency 'aranha-parsers', '~> 0.14', '>= 0.14.3'
   s.add_dependency 'eac_active_scaffold', '~> 0.2', '>= 0.2.3'
   s.add_dependency 'eac_rails_delayed_job', '~> 0.1', '>= 0.1.3'

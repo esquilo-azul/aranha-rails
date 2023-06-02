@@ -31,6 +31,7 @@ module Aranha
       end
     end
 
+    validates :priority, numericality: { only_integer: true }
     validates :processor_class, presence: true
     validate :processor_class_in_list
     validates :timeout_seconds, allow_blank: true,

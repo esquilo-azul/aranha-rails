@@ -43,7 +43,7 @@ module Aranha
       end
 
       def unprocessed_addresses
-        ::Aranha::Address.all.select(&:schedule?)
+        ::Aranha::Address.all.select(&:schedule?).sort_by { |a| [a.priority] }
       end
     end
   end

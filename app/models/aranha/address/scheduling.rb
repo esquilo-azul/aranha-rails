@@ -11,6 +11,8 @@ module Aranha
     module Scheduling
       common_concern
 
+      DEFAULT_PRIORITY = 0
+
       module ClassMethods
         # @return [Array<Aranha::Address>]
         def expired(time = ::Time.zone.now)
@@ -24,7 +26,8 @@ module Aranha
 
           job = ::Delayed::Job.enqueue(
             ::Aranha::Address::DelayedJob.new(id),
-            queue: ::Aranha::Rails::Process::QUEUE
+            queue: ::Aranha::Rails::Process::QUEUE,
+            priority: priority
           )
           update!(delayed_job: job)
         end
@@ -41,6 +44,10 @@ module Aranha
 
       def allow_retry?
         tries_count < ::Aranha::Processor::DEFAULT_MAX_TRIES
+      end
+
+      def priority
+        processor_configuration.if_present(DEFAULT_PRIORITY, &:priority)
       end
 
       def schedule?

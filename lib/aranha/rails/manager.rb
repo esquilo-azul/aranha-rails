@@ -9,7 +9,7 @@ module Aranha
       include ::Singleton
 
       def add_address(url, processor, extra_data = nil)
-        ::Rails.logger.info("Adding \"#{url}\"")
+        ::Rails.logger.info("Adding \"#{url} | #{processor} | #{extra_data}\"")
         a = ::Aranha::Address.find_or_initialize_by(url: ::Aranha::Address.sanitize_url(url))
         a.processor = processor
         a.extra_data = extra_data.to_yaml

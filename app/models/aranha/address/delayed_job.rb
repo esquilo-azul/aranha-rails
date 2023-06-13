@@ -9,7 +9,7 @@ module Aranha
       common_constructor :address_id
 
       def perform
-        ::Rails.logger.info("Processing \"#{address.url}\"")
+        ::Rails.logger.info("Processing \"#{address}\"")
         address_processor.successful? ? perform_on_success : perform_on_error
       end
 

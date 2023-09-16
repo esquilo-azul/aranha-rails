@@ -10,3 +10,9 @@ en:
       aranha/start_point:
         one: Aranha start point
         other: Aranha start points
+  eac_rails_utils:
+    menus:
+      root:
+        admin:
+          aranha:
+            __self: Aranha

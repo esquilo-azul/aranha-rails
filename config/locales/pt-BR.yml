@@ -10,3 +10,9 @@ pt-BR:
       aranha/start_point:
         one: Ponto de Partida Aranha
         other: Pontos de Partida Aranha
+  eac_rails_utils:
+    menus:
+      root:
+        admin:
+          aranha:
+            __self: Aranha

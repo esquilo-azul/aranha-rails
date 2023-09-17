@@ -24,7 +24,7 @@ module Aranha
       end
     end
 
-    validates :uri, presence: true, uniqueness: true,
+    validates :uri, presence: true, uniqueness: true, # rubocop:disable Rails/UniqueValidationWithoutIndex
                     format: { with: ::URI::DEFAULT_PARSER.make_regexp }
     validates :processor_class, presence: true
     validate :processor_class_in_list

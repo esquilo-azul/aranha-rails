@@ -24,7 +24,7 @@ module Aranha
     belongs_to :delayed_job, class_name: 'Delayed::Backend::ActiveRecord::Job', dependent: :destroy,
                              optional: true
 
-    validates :url, presence: true, uniqueness: true
+    validates :url, presence: true, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
     validates :processor, presence: true
     validates :tries_count, presence: true, numericality: { only_integer: true,
                                                             greater_or_equal: 0 }

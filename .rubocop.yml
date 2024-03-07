@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-  - app/models/aranha/processor_configuration.rb
-  - config/initializers/menus.rb
 Metrics/BlockLength:
   Exclude:
   - lib/tasks/aranha.rake

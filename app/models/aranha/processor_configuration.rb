@@ -10,7 +10,7 @@ module Aranha
       # @return [Enumerator<String>]
       def processor_class_list
         ::Set.new(processor_class_list_from_addresses + processor_class_list_from_start_points)
-             .to_enum.sort
+          .to_enum.sort
       end
 
       # @return [Hash<String, String>]

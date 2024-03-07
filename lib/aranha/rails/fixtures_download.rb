@@ -65,7 +65,7 @@ module Aranha
         content = ::Aranha::Parsers::Base.new(url).content
         raise "Content is blank for \"#{url}\"" if content.blank?
 
-        File.open(target, 'wb') { |file| file.write(content) }
+        File.binwrite(target, content)
       end
 
       def url(file)

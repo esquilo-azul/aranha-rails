@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/FileWrite:
-  Exclude:
-  - lib/aranha/rails/fixtures_download.rb
 Style/MapToHash:
   Exclude:
   - app/models/aranha/processor_configuration.rb

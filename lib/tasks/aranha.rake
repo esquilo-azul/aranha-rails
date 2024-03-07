@@ -24,8 +24,8 @@ namespace(:aranha) do # rubocop:disable Metrics/BlockLength
       require 'aranha/rails/fixtures_download'
 
       ::Aranha::Rails::FixturesDownload.new(
-        ::Aranha::Rails::FixturesDownload::OPTION_EXTENSION => ENV['EXTENSION'],
-        ::Aranha::Rails::FixturesDownload::OPTION_PREFIX => ENV['PREFIX'],
+        ::Aranha::Rails::FixturesDownload::OPTION_EXTENSION => ENV.fetch('EXTENSION', nil),
+        ::Aranha::Rails::FixturesDownload::OPTION_PREFIX => ENV.fetch('PREFIX', nil),
         ::Aranha::Rails::FixturesDownload::OPTION_DOWNLOAD => ENV['DOWNLOAD'].present?,
         ::Aranha::Rails::FixturesDownload::OPTION_PENDING => ENV['PENDING'].present?
       ).run

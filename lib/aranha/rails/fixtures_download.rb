@@ -73,7 +73,7 @@ module Aranha
       end
 
       def target(file)
-        File.expand_path(File.basename(file, '.url') + '.source' + extension, File.dirname(file))
+        File.expand_path(File.basename(file, '.url') + '.source' + extension, File.dirname(file)) # rubocop:disable Style/StringConcatenation
       end
 
       def relative_path(path)

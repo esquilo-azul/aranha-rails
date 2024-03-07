@@ -2,4 +2,4 @@
 
 require 'aranha/rails/manager'
 
-::Aranha::Manager.default = ::Aranha::Rails::Manager.instance
+Aranha::Manager.default = Aranha::Rails::Manager.instance

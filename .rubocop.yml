@@ -1,16 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/RedundantConstantBase:
-  Exclude:
-  - Gemfile
-  - config/initializers/aranha.rb
-  - config/initializers/menus.rb
-  - config/routes.rb
-  - lib/aranha/rails/patches/delayed_job.rb
-  - lib/tasks/aranha.rake
-  - spec/rubocop_spec.rb
-  - spec/spec_helper.rb
 Style/StringConcatenation:
   Exclude:
   - lib/aranha/rails/fixtures_download.rb

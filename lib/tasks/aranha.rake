@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-namespace(:aranha) do
+namespace(:aranha) do # rubocop:disable Metrics/BlockLength
   desc 'Process Aranha\'s addresses.'
   task :process, %i[limit] => :environment do |_t, args|
     ::Aranha::Rails::Process.new(limit: args.limit).run

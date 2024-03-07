@@ -1,29 +1,46 @@
-require:
-  - rubocop-rails
-  - rubocop-rspec
-
-AllCops:
-  TargetRubyVersion: 2.4
-  TargetRailsVersion: 5.1
-
-Layout/LineLength:
-  Max: 100
-
+---
+inherit_gem:
+  eac_rails_gem_support: ".rubocop.yml"
+Gemspec/DeprecatedAttributeAssignment:
+  Exclude:
+  - aranha-rails.gemspec
+Gemspec/RequiredRubyVersion:
+  Exclude:
+  - aranha-rails.gemspec
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+  - app/models/aranha/processor_configuration.rb
+  - config/initializers/menus.rb
 Metrics/BlockLength:
   Exclude:
-    - 'lib/tasks/**/*.rake'
-
-Style/AsciiComments:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
+  - lib/tasks/aranha.rake
+Rails/FindEach:
+  Exclude:
+  - lib/aranha/rails/manager.rb
+  - lib/aranha/rails/process.rb
+Rails/TransactionExitStatement:
+  Exclude:
+  - app/models/aranha/address/scheduling.rb
+Style/FetchEnvVar:
+  Exclude:
+  - lib/tasks/aranha.rake
+Style/FileWrite:
+  Exclude:
+  - lib/aranha/rails/fixtures_download.rb
+Style/MapToHash:
+  Exclude:
+  - app/models/aranha/processor_configuration.rb
+  - app/models/aranha/start_point.rb
+Style/RedundantConstantBase:
+  Exclude:
+  - Gemfile
+  - config/initializers/aranha.rb
+  - config/initializers/menus.rb
+  - config/routes.rb
+  - lib/aranha/rails/patches/delayed_job.rb
+  - lib/tasks/aranha.rake
+  - spec/rubocop_spec.rb
+  - spec/spec_helper.rb
+Style/StringConcatenation:
+  Exclude:
+  - lib/aranha/rails/fixtures_download.rb

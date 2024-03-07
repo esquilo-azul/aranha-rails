@@ -15,7 +15,7 @@ module Aranha
 
       # @return [Hash<String, String>]
       def processor_class_options
-        processor_class_list.map { |e| [e, e] }.to_h
+        processor_class_list.map { |e| [e, e] }.to_h # rubocop:disable Style/MapToHash
       end
 
       private

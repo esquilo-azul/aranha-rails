@@ -22,7 +22,7 @@ module Aranha
 
       def check_scheduling
         ::ActiveRecord::Base.transaction do
-          return unless schedule?
+          return unless schedule? # rubocop:disable Rails/TransactionExitStatement
 
           job = ::Delayed::Job.enqueue(
             ::Aranha::Address::DelayedJob.new(id),

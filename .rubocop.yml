@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Rails/TransactionExitStatement:
-  Exclude:
-  - app/models/aranha/address/scheduling.rb
 Style/FetchEnvVar:
   Exclude:
   - lib/tasks/aranha.rake

@@ -2,7 +2,7 @@
 
 require 'aranha/parsers/base'
 require 'aranha/parsers/source_address'
-require 'aranha/parsers/source_target_fixtures'
+require 'eac_ruby_gem_support/source_target_fixtures'
 require 'eac_ruby_utils/core_ext'
 
 module Aranha
@@ -81,7 +81,7 @@ module Aranha
       end
 
       def source_exist?(path)
-        stf = ::Aranha::Parsers::SourceTargetFixtures.new(::File.dirname(path))
+        stf = ::EacRubyGemSupport::SourceTargetFixtures.new(::File.dirname(path))
         stf.source_file(::File.basename(path, '.url')).present?
       end
     end

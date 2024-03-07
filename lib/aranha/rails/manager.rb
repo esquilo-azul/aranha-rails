@@ -37,7 +37,7 @@ module Aranha
 
       def start_points_to_addresses
         super
-        ::Aranha::StartPoint.all.each do |sp|
+        ::Aranha::StartPoint.all.each do |sp| # rubocop:disable Rails/FindEach
           add_address(sp.uri, sp.processor_class, sp.extra_data)
         end
       end

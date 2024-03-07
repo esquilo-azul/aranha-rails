@@ -1,10 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Rails/FindEach:
-  Exclude:
-  - lib/aranha/rails/manager.rb
-  - lib/aranha/rails/process.rb
 Rails/TransactionExitStatement:
   Exclude:
   - app/models/aranha/address/scheduling.rb

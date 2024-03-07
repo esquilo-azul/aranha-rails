@@ -34,7 +34,7 @@ module Aranha
 
       def run_init
         ::Aranha::Manager.default.init
-        ::Aranha::Address.all.each(&:init_scheduling)
+        ::Aranha::Address.all.each(&:init_scheduling) # rubocop:disable Rails/FindEach
       end
 
       def run_jobs_workoff

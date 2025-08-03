@@ -13,8 +13,11 @@ namespace(:aranha) do # rubocop:disable Metrics/BlockLength
 
   namespace :address do
     desc 'Process a arbitrary address.'
-    task :process, %i[uri processor] => :environment do |_t, args|
-      args.processor.constantize.new(args.uri, {}).process
+    task :process, %i[uri processor extra_data] => :environment do |_t, args|
+      args.processor.constantize.new(
+        args.uri,
+        args.extra_data.if_present({}) { |v| EacRubyUtils::Yaml.load(v).with_indifferent_access }
+      ).process
     end
   end
 

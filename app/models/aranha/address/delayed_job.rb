@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'aranha/address_processor'
-require 'eac_ruby_utils/core_ext'
-
 module Aranha
   class Address < ::ActiveRecord::Base
     class DelayedJob

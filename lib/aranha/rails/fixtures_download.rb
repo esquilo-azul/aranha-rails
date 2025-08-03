@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-require 'aranha/parsers/base'
-require 'aranha/parsers/source_address'
-require 'eac_ruby_gem_support/source_target_fixtures'
-require 'eac_ruby_utils/core_ext'
-
 module Aranha
   module Rails
     class FixturesDownload

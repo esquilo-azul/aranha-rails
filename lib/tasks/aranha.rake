@@ -21,8 +21,6 @@ namespace(:aranha) do # rubocop:disable Metrics/BlockLength
   namespace :fixtures do
     desc 'Download remote content for fixtures.'
     task download: :environment do
-      require 'aranha/rails/fixtures_download'
-
       Aranha::Rails::FixturesDownload.new(
         Aranha::Rails::FixturesDownload::OPTION_EXTENSION => ENV.fetch('EXTENSION', nil),
         Aranha::Rails::FixturesDownload::OPTION_PREFIX => ENV.fetch('PREFIX', nil),

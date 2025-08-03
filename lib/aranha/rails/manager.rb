@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'aranha/manager'
 require 'singleton'
 
 module Aranha

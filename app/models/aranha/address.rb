@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/yaml'
-require 'delayed/backend/active_record'
-
 module Aranha
   class Address < ::ActiveRecord::Base
     include ::EacRailsUtils::Models::InequalityQueries

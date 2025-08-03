@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/yaml'
-
 module Aranha
   class ProcessorConfiguration < ::ActiveRecord::Base
     DEFAULT_TIMEOUT = 12.hours

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'eac_ruby_utils/yaml'
-
 module Aranha
   class StartPoint < ::ActiveRecord::Base
     class << self

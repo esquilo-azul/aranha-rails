@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'aranha', '~> 0.20'
-  s.add_dependency 'aranha-parsers', '~> 0.22'
+  s.add_dependency 'aranha-parsers', '~> 0.26', '>= 0.26.1'
   s.add_dependency 'eac_active_scaffold', '~> 0.5', '>= 0.5.3'
   s.add_dependency 'eac_rails_delayed_job', '~> 0.2', '>= 0.2.1'
   s.add_dependency 'eac_rails_utils', '~> 0.22', '>= 0.22.3'

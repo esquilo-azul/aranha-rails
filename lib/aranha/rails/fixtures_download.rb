@@ -52,7 +52,7 @@ module Aranha
         !pending? || !source_exist?(path)
       end
 
-      def match_prefix_pattern(path)
+      def match_prefix_pattern(path) # rubocop:disable Naming/PredicateMethod
         relative_path(path).start_with?(prefix)
       end
 

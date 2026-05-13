@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Put here de description.'
 
   s.files = Dir['{app,config,db,lib}/**/*']
-  s.required_ruby_version = '>= 2.7'
+  s.required_ruby_version = '>= 3.2'
 
   s.add_dependency 'aranha', '~> 0.20'
   s.add_dependency 'aranha-parsers', '~> 0.27'
